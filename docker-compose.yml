@@ -1,0 +1,20 @@
+version: '3'
+
+
+services:
+
+  janus:
+    image: canyan/janus-gateway:latest
+    command: ["/usr/local/bin/janus", "-F", "/usr/local/etc/janus"]
+    ports:
+      # - "80:80"
+      - "7088:7088" # admin
+      - "8088:8088" # drone
+      - "8188:8188" # front
+      # - "7089:7089"
+      # - "8089:8089"
+      # - "8889:8889"
+    volumes:
+      - ./etc/janus.jcfg:/usr/local/etc/janus/janus.jcfg
+      - ./etc/janus.plugin.audiobridge.jcfg:/usr/local/etc/janus/janus.plugin.audiobridge.jcfg
+      - ./etc/janus.transport.http.jcfg:/usr/local/etc/janus/janus.transport.http.jcfg
