@@ -13,8 +13,6 @@
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
-    "eslint": "8.47.0",
-    "eslint-config-next": "13.4.15",
     "janus-gateway": "^1.2.0",
     "next": "13.4.15",
     "postcss": "8.4.27",

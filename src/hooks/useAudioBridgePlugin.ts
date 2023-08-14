@@ -47,7 +47,7 @@ export default function useAudioBridgePlugin({
       dependencies: Janus.useDefaultDependencies({ adapter: adapter }),
       callback: function () {
         const janus = new Janus({
-          server: "ws://localhost:8188",
+          server: process.env.NEXT_PUBLIC_JANUS_HOST ?? "ws://localhost:8188",
           success: function () {},
         });
         setJanus(janus);
@@ -132,7 +132,7 @@ export default function useAudioBridgePlugin({
     if(pluginHandle==null) return;
     pluginHandle.createOffer({
       tracks: [
-        { type: "audio", capture: isSpeaker, recv: true },
+        { type: "audio", capture: isSpeaker, recv: !isSpeaker },
         { type: "video", capture: false, recv: false },
       ],
       success: function (jsep: any) {
