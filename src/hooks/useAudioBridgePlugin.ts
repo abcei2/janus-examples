@@ -130,9 +130,9 @@ export default function useAudioBridgePlugin({
 
   const createOffer = () => {
     if(pluginHandle==null) return;
-    pluginHandle.createOffer({
+    pluginHandle.createOffer({ 
       tracks: [
-        { type: "audio", capture: isSpeaker, recv: !isSpeaker },
+        { type: "audio", capture: isSpeaker, recv: true },
         { type: "video", capture: false, recv: false },
       ],
       success: function (jsep: any) {
